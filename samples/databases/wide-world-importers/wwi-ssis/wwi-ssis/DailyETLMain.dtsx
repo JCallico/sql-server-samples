@@ -7,15 +7,37 @@
   DTS:CreatorName="GREG7440WIN10\Greg"
   DTS:DTSID="{1688CC04-248C-44DC-9B43-C8D2DE1DE3FD}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
   DTS:LocaleID="3081"
   DTS:ObjectName="DailyETLMain"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{00A1E197-21DE-4954-AAA0-E348461E172E}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{48E1B280-A3F1-4198-A66C-DEB2F8A74C0A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}"
+      DTS:ObjectName="WWI_DW_Destination_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=WideWorldImportersDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WWI_Source_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}"
+      DTS:ObjectName="WWI_Source_DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=WideWorldImporters;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -138,7 +160,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -172,8 +194,8 @@
                   <connections>
                     <connection
                       refId="Package\Load City Dimension\Extract Updated City Data to Staging\Integration_City_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -383,7 +405,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetCityUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetCityUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -426,8 +448,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load City Dimension\Extract Updated City Data to Staging\Integration_GetCityUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -922,7 +944,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -956,8 +978,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Customer Dimension\Extract Updated Customer Data to Staging\Integration_Customer_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1135,7 +1157,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetCustomerUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetCustomerUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -1175,8 +1197,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Customer Dimension\Extract Updated Customer Data to Staging\Integration_GetCustomerUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1614,7 +1636,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1648,8 +1670,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Employee Dimension\Extract Updated Employee Data to Staging\Integration_Employee_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1799,7 +1821,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetEmployeeUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetEmployeeUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -1837,8 +1859,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Employee Dimension\Extract Updated Employee Data to Staging\Integration_GetEmployeeUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2228,7 +2250,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetMovementUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetMovementUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -2269,8 +2291,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Movement Fact\Extract Updated Movement Data to Staging\Integration_GetMovementUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2514,7 +2536,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2548,8 +2570,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Movement Fact\Extract Updated Movement Data to Staging\Integration_Movement_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2930,7 +2952,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetOrderUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetOrderUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -2980,8 +3002,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Order Fact\Extract Updated Order Data to Staging\Integration_GetOrderUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3405,7 +3427,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3439,8 +3461,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Order Fact\Extract Updated Order Data to Staging\Integration_Order_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3933,7 +3955,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetPaymentMethodUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetPaymentMethodUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -3968,8 +3990,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Payment Method Dimension\Extract Updated Payment Method Data to Staging\Integration_GetPaymentMethodUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4111,7 +4133,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4145,8 +4167,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Payment Method Dimension\Extract Updated Payment Method Data to Staging\Integration_PaymentMethod_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4455,7 +4477,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetPurchaseUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetPurchaseUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -4496,8 +4518,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Purchase Fact\Extract Updated Purchase Data to Staging\Integration_GetPurchaseUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4744,7 +4766,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4778,8 +4800,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Purchase Fact\Extract Updated Purchase Data to Staging\Integration_Purchase_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5154,7 +5176,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetSaleUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetSaleUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -5205,8 +5227,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Sale Fact\Extract Updated Sale Data to Staging\Integration_GetSaleUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5672,7 +5694,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5706,8 +5728,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Sale Fact\Extract Updated Sale Data to Staging\Integration_Sale_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6220,7 +6242,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetStockHoldingUpdates
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetStockHoldingUpdates
 WITH RESULT SETS
 (
     (
@@ -6258,8 +6280,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Stock Holding Fact\Extract All Stock Holding Data to Staging\Integration_GetStockHoldingUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6449,7 +6471,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -6483,8 +6505,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Stock Holding Fact\Extract All Stock Holding Data to Staging\Integration_StockHolding_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6825,7 +6847,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetStockItemUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetStockItemUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -6874,8 +6896,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Stock Item Dimension\Extract Updated Stock Item Data to Staging\Integration_GetStockItemUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -7311,7 +7333,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -7345,8 +7367,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Stock Item Dimension\Extract Updated Stock Item Data to Staging\Integration_StockItem_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -7823,7 +7845,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetSupplierUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetSupplierUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -7863,8 +7885,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Supplier Dimension\Extract Updated Supplier Data to Staging\Integration_GetSupplierUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8108,7 +8130,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8142,8 +8164,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Supplier Dimension\Extract Updated Supplier Data to Staging\Integration_Supplier_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8510,7 +8532,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetTransactionUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetTransactionUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -8558,8 +8580,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Transaction Fact\Extract Updated Transaction Data to Staging\Integration_GetTransactionUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8956,7 +8978,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8990,8 +9012,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Transaction Fact\Extract Updated Transaction Data to Staging\Integration_Transaction_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -9464,7 +9486,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC Integration.GetTransactionTypeUpdates ?, ?
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC Integration.GetTransactionTypeUpdates ?, ?
 WITH RESULT SETS
 (
     (
@@ -9499,8 +9521,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Transaction Type Dimension\Extract Updated Transaction Type Data to Staging\Integration_GetTransactionTypeUpdates.Connections[OleDbConnection]"
-                      connectionManagerID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_Source_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_Source_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -9642,7 +9664,7 @@ WITH RESULT SETS
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9676,8 +9698,8 @@ WITH RESULT SETS
                   <connections>
                     <connection
                       refId="Package\Load Transaction Type Dimension\Extract Updated Transaction Type Data to Staging\Integration_TransactionType_Staging.Connections[OleDbConnection]"
-                      connectionManagerID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerID="Package.ConnectionManagers[WWI_DW_Destination_DB]"
+                      connectionManagerRefId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -10243,7 +10265,7 @@ WITH RESULT SETS
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="263,612"
+          PanelSize="291,612"
           Size="291,43"
           Id="Package\Load City Dimension"
           TopLeft="204.500000000001,371.3" />
@@ -10290,7 +10312,9 @@ WITH RESULT SETS
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10312,7 +10336,9 @@ WITH RESULT SETS
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10334,7 +10360,9 @@ WITH RESULT SETS
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10356,7 +10384,9 @@ WITH RESULT SETS
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10378,13 +10408,15 @@ WITH RESULT SETS
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="290,613"
+          PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Customer Dimension"
           TopLeft="204.500000000001,446.233333333333" />
@@ -10837,7 +10869,7 @@ WITH RESULT SETS
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="272,613"
+          PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Order Fact"
           TopLeft="204.500000000001,970.766666666666" />
@@ -11139,7 +11171,7 @@ WITH RESULT SETS
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="288,613"
+          PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Purchase Fact"
           TopLeft="204.500000000001,1045.7" />
@@ -11290,7 +11322,7 @@ WITH RESULT SETS
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="265,613"
+          PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Sale Fact"
           TopLeft="204.500000000001,1120.63333333333" />
@@ -11441,7 +11473,7 @@ WITH RESULT SETS
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="282,613"
+          PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Stock Holding Fact"
           TopLeft="204.500000000001,1195.56666666667" />
@@ -11743,7 +11775,7 @@ WITH RESULT SETS
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="284,613"
+          PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Supplier Dimension"
           TopLeft="204.500000000001,745.966666666666" />
