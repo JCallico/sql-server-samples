@@ -12,29 +12,31 @@
   DTS:ObjectName="DailyETLMain"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{48E1B280-A3F1-4198-A66C-DEB2F8A74C0A}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{A1FF67EE-F140-4367-8239-DD25D006164C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[WWI_DW_Destination_DB]"
       DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
       DTS:DTSID="{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}"
       DTS:ObjectName="WWI_DW_Destination_DB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=WideWorldImportersDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=WideWorldImportersDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DailyETLMain-{7C3E3ECC-C5AD-4675-9618-FC08465F8BC9}WWI_DW_Destination_DB;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[WWI_Source_DB]"
       DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
       DTS:DTSID="{E8464E14-D126-4B86-AFFB-295B0D3506F4}"
       DTS:ObjectName="WWI_Source_DB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=WideWorldImporters;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=WideWorldImporters;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DailyETLMain-{E8464E14-D126-4B86-AFFB-295B0D3506F4}WWI_Source_DB;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -81,6 +83,7 @@
     <DTS:Executable
       DTS:refId="Package\Calculate ETL Cutoff Time backup"
       DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:DelayValidation="True"
       DTS:Description="Expression Task"
       DTS:DTSID="{1AB43A83-F682-4D1A-B54D-5B6D71A27FBD}"
       DTS:ExecutableType="Microsoft.ExpressionTask"
@@ -97,6 +100,7 @@
     <DTS:Executable
       DTS:refId="Package\Ensure Date Dimension includes current year"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{92E7FED7-B5B8-4831-8623-7E5C7931DDF8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
@@ -114,6 +118,7 @@
     <DTS:Executable
       DTS:refId="Package\Load City Dimension"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{035B143D-3ADA-42F4-8824-972E2DE9514C}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -898,6 +903,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Customer Dimension"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{4C51B6E7-C1C3-490F-B64F-0185D0471346}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -1590,6 +1596,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Employee Dimension"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{8CF037E2-80CD-442A-AFBD-817F8A2D91EA}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -2204,6 +2211,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Movement Fact"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{3ADBE0E1-6C60-42DA-9494-D6D6EC07411D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -2906,6 +2914,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Order Fact"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{BAF869F3-09F4-437A-9A40-99180573F532}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -3909,6 +3918,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Payment Method Dimension"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{19482F60-F7DE-4F0D-B2CD-5EAAB198FEB1}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -4431,6 +4441,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Purchase Fact"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{79F6A8F7-90B9-4E2C-9B0F-18ED1D3673F2}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -5130,6 +5141,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Sale Fact"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{4C67222D-97D4-4E4C-91DA-DA1E71CDAC61}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -6196,6 +6208,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Stock Holding Fact"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{B69E79A0-49C8-43AB-B674-A0DE0275A76D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -6801,6 +6814,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Stock Item Dimension"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{0E4F8305-179C-45DB-9DD9-12B5D6C33A0E}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -7799,6 +7813,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Supplier Dimension"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{AAFC80AB-8064-43FD-AB8C-ACEA8C476A8E}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -8486,6 +8501,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Transaction Fact"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{0D2109DF-68E7-4F1C-AC76-5FAF9781B864}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -9440,6 +9456,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Load Transaction Type Dimension"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{92EF3B4B-D631-4891-95DD-1700E09B18D2}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -9962,6 +9979,7 @@ WITH RESULT SETS
     <DTS:Executable
       DTS:refId="Package\Trim Any Milliseconds"
       DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:DelayValidation="True"
       DTS:Description="Expression Task"
       DTS:DTSID="{cbe59f26-38bf-4e56-bd20-37c694c38787}"
       DTS:ExecutableType="Microsoft.ExpressionTask"
@@ -10113,7 +10131,7 @@ WITH RESULT SETS
         <NodeLayout
           Size="291,42"
           Id="Package\Calculate ETL Cutoff Time backup"
-          TopLeft="204.500000000001,149.5" />
+          TopLeft="204.500000000001,147.5" />
         <NodeLayout
           Size="291,42"
           Id="Package\Ensure Date Dimension includes current year"
@@ -10268,7 +10286,7 @@ WITH RESULT SETS
           PanelSize="291,612"
           Size="291,43"
           Id="Package\Load City Dimension"
-          TopLeft="204.500000000001,371.3" />
+          TopLeft="207.500000000001,375.3" />
         <NodeLayout
           Size="279,42"
           Id="Package\Load Customer Dimension\Extract Updated Customer Data to Staging"
@@ -10570,7 +10588,7 @@ WITH RESULT SETS
           PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Employee Dimension"
-          TopLeft="204.500000000001,521.166666666667" />
+          TopLeft="203.500000000001,521.166666666667" />
         <NodeLayout
           Size="284,42"
           Id="Package\Load Movement Fact\Extract Updated Movement Data to Staging"
@@ -11627,7 +11645,7 @@ WITH RESULT SETS
           PanelSize="297,613"
           Size="291,43"
           Id="Package\Load Stock Item Dimension"
-          TopLeft="204.500000000001,671.033333333333" />
+          TopLeft="205.500000000001,671.033333333333" />
         <NodeLayout
           Size="273,42"
           Id="Package\Load Supplier Dimension\Extract Updated Supplier Data to Staging"
@@ -11778,7 +11796,7 @@ WITH RESULT SETS
           PanelSize="291,613"
           Size="291,43"
           Id="Package\Load Supplier Dimension"
-          TopLeft="204.500000000001,745.966666666666" />
+          TopLeft="209.500000000001,743.966666666666" />
         <NodeLayout
           Size="289,42"
           Id="Package\Load Transaction Fact\Extract Updated Transaction Data to Staging"
@@ -12087,18 +12105,18 @@ WITH RESULT SETS
           TopLeft="204.500000000001,223.433333333333" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="350.000000000001,191.5">
+          TopLeft="350.000000000001,189.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,33.933333333333"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,26.433333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,26.433333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12109,18 +12127,18 @@ WITH RESULT SETS
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="350.000000000001,339.366666666667">
+          TopLeft="351.500000000001,339.366666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,35.933333333333"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,28.433333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,28.433333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12263,18 +12281,18 @@ WITH RESULT SETS
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="350.000000000001,414.3">
+          TopLeft="351.500000000001,418.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,27.933333333333"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,20.433333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,20.433333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12285,18 +12303,18 @@ WITH RESULT SETS
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="350.000000000001,489.233333333333">
+          TopLeft="349.500000000001,489.233333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,31.933333333334"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,24.433333333334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,24.433333333334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12307,18 +12325,18 @@ WITH RESULT SETS
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="350.000000000001,564.166666666667">
+          TopLeft="349.500000000001,564.166666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,31.9333333333331"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,24.4333333333331">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,24.4333333333331" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12329,18 +12347,18 @@ WITH RESULT SETS
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="350.000000000001,639.1">
+          TopLeft="350.500000000001,639.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,31.9333333333329"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,24.4333333333329">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,24.4333333333329" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12351,18 +12369,18 @@ WITH RESULT SETS
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="350.000000000001,714.033333333333">
+          TopLeft="353.000000000001,714.033333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,29.9333333333331"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,22.4333333333331">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,22.4333333333331" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12373,18 +12391,18 @@ WITH RESULT SETS
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="350.000000000001,788.966666666666">
+          TopLeft="352.500000000001,786.966666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.9333333333333"
+              EndConnector="0,33.933333333334"
               Start="0,0"
-              End="0,24.4333333333333">
+              End="0,26.433333333334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4333333333333" />
+                    End="0,26.433333333334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12422,7 +12440,7 @@ WITH RESULT SETS
     design-time-name="Package\Load City Dimension\Extract Updated City Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="209,42"
           Id="Package\Load City Dimension\Extract Updated City Data to Staging\Integration_GetCityUpdates"
@@ -12450,9 +12468,7 @@ WITH RESULT SETS
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
